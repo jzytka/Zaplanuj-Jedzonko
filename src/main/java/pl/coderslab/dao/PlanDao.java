@@ -114,7 +114,7 @@ public class PlanDao {
 
     public void delete(Integer planId) {
         try (Connection connection = DbUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(DELETE_PLAN_QUERY, PreparedStatement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement statement = connection.prepareStatement(DELETE_PLAN_QUERY)) {
             statement.setInt(1, planId);
             int deleted = statement.executeUpdate();
 
