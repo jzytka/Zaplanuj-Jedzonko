@@ -6,31 +6,44 @@ public class Plan {
     private String name;
     private String description;
     private String created;
-    private int adminId;
+    //private int adminId;
+    private Admin admin;
 
 
-    public Plan(int id, String name, String description, String created, int adminId) {
+    public Plan(int id, String name, String description, String created, Admin admin) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.created = created;
-        this.adminId = adminId;
+        this.admin = admin;
     }
 
-    public Plan(int id, String name, String description, int adminId) {
+    public Plan(int id, String name, String description, Admin admin) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.adminId = adminId;
+        this.admin = admin;
     }
 
-    public Plan(String name, String description, int adminId) {
+
+
+
+    public Plan(String name, String description, Admin admin) {
         this.name = name;
         this.description = description;
-        this.adminId = adminId;
+        this.admin = admin;
     }
 
     public Plan() {
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public Plan setAdmin(Admin admin) {
+        this.admin = admin;
+        return this;
     }
 
     public int getId() {
@@ -69,19 +82,12 @@ public class Plan {
         return this;
     }
 
-    public int getAdminId() {
-        return adminId;
-    }
 
-    public Plan setAdminId(int adminId) {
-        this.adminId = adminId;
-        return this;
-    }
 
     @Override
     public String toString() {
         return "Plan [id=" + id + ", name=" + name + ", description=" + description + ", created=" + created +
-                ", adminId=" + adminId + "]";
+                ", admin=" + admin + "]";
     }
 
 

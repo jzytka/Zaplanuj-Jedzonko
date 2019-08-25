@@ -1,6 +1,7 @@
 package pl.coderslab.dao;
 
 import pl.coderslab.exception.NotFoundException;
+import pl.coderslab.model.Admin;
 import pl.coderslab.model.Book;
 import pl.coderslab.model.Plan;
 import pl.coderslab.utils.DbUtil;
@@ -35,7 +36,9 @@ public class PlanDao {
                     plan.setName(resultSet.getString("name"));
                     plan.setDescription(resultSet.getString("description"));
                     plan.setCreated(resultSet.getString("created"));
-                    plan.setAdminId(resultSet.getInt("admin_id"));
+                    int adminId = resultSet.getInt("admin_id");
+                    Admin admin = AdminDao.read(adminId);
+                    plan.setAdmin(admin);
                 }
             }
         } catch (Exception e) {
@@ -58,7 +61,9 @@ public class PlanDao {
                 planToAdd.setName(resultSet.getString("name"));
                 planToAdd.setDescription(resultSet.getString("description"));
                 planToAdd.setCreated(resultSet.getString("created"));
-                planToAdd.setAdminId(resultSet.getInt("admin_id"));
+                int adminId = resultSet.getInt(("admin_id"));
+                Admin admin = AdminDao.read(adminId);
+                planToAdd.setAdmin(admin);
                 planList.add(planToAdd);
             }
 
@@ -75,7 +80,7 @@ public class PlanDao {
                      PreparedStatement.RETURN_GENERATED_KEYS)) {
             insertStm.setString(1, plan.getName());
             insertStm.setString(2, plan.getDescription());
-            insertStm.setInt(3, plan.getAdminId());
+            insertStm.setInt(3, plan.getAdmin().getId());
             int result = insertStm.executeUpdate();
 
             if (result != 1) {
@@ -103,7 +108,7 @@ public class PlanDao {
             statement.setInt(4, plan.getId());
             statement.setString(1, plan.getName());
             statement.setString(2, plan.getDescription());
-            statement.setInt(3, plan.getAdminId());
+            statement.setInt(3, plan.getAdmin().getId());
 
             statement.executeUpdate();
         } catch (Exception e) {
