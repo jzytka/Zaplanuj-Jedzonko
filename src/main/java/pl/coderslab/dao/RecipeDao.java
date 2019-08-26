@@ -64,8 +64,8 @@ public class RecipeDao {
                     recipe.setId(resultSet.getInt("id"));
                     recipe.setName(resultSet.getString("name"));
                     recipe.setIngredients(resultSet.getString("ingredients"));
-                    recipe.setCreated(resultSet.getDate("created"));
-                    recipe.setUpdated(resultSet.getDate("updated"));
+                    recipe.setCreated(resultSet.getString("created"));
+                    recipe.setUpdated(resultSet.getString("updated"));
                     recipe.setPreparationTime(resultSet.getInt("preparation_time"));
                     recipe.setPreparation(resultSet.getString("preparation"));
                     int adminId = resultSet.getInt("admin_id");
@@ -131,8 +131,8 @@ public class RecipeDao {
                 recipe.setId(resultSet.getInt("id"));
                 recipe.setName(resultSet.getString("name"));
                 recipe.setIngredients(resultSet.getString("ingredients"));
-                recipe.setCreated(resultSet.getDate("created"));
-                recipe.setUpdated(resultSet.getDate("updated"));
+                recipe.setCreated(resultSet.getString("created"));
+                recipe.setUpdated(resultSet.getString("updated"));
                 recipe.setPreparationTime(resultSet.getInt("preparation_time"));
                 recipe.setPreparation(resultSet.getString("preparation"));
                 int adminId = resultSet.getInt("admin_id");
