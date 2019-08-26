@@ -10,7 +10,7 @@ import java.util.List;
 public class AdminDao {
 
     private static final String CREATE_ADMIN_QUERY =
-            "INSERT INTO admins(first_name, last_name, email, password, superadmin, enable) VALUES (?, ?, ?, ?. ?, ?)";
+            "INSERT INTO admins(first_name, last_name, email, password, superadmin, enable) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String READ_ADMIN_QUERY =
             "SELECT * FROM admins where id = ?";
     private static final String UPDATE_ADMIN_QUERY =
