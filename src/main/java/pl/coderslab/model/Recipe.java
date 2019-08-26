@@ -8,8 +8,8 @@ public class Recipe {
     private String name;
     private String ingredients;
     private String description;
-    private Date created;
-    private Date updated;
+    private String created;
+    private String updated;
     private int preparationTime;
     private String preparation;
     private Admin admin;
@@ -17,7 +17,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, String ingredients, String description, Date created, Date updated, int preparationTime, String preparation, Admin admin) {
+    public Recipe(String name, String ingredients, String description, String created, String updated, int preparationTime, String preparation, Admin admin) {
         this.name = name;
         this.ingredients = ingredients;
         this.description = description;
@@ -60,19 +60,19 @@ public class Recipe {
         this.description = description;
     }
 
-    public Date getCreated() {
+    public String getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(String created) {
         this.created = created;
     }
 
-    public Date getUpdated() {
+    public String getUpdated() {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public void setUpdated(String updated) {
         this.updated = updated;
     }
 
