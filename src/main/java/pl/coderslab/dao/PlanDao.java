@@ -23,8 +23,10 @@ public class PlanDao {
     private static final String READ_PLAN_QUERY = "SELECT * from plan where id = ?;";
     private static final String UPDATE_PLAN_QUERY = "UPDATE	plan SET name = ?, description = ?, admin_id = ? WHERE	id = ?;";
 
+    private static final String COUNT_PLAN_QUERY = "SELECT count(admin_id) from plan where admin_id= ?;";
 
-    public Plan read(int id) {
+
+   public static Plan read(int id) {
         Plan plan = new Plan();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(READ_PLAN_QUERY)
@@ -49,7 +51,8 @@ public class PlanDao {
     }
 
 
-    public List<Plan> findAll() {
+
+    public static List<Plan> findAll() {
         List<Plan> planList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_ALL_PLANS_QUERY);
@@ -74,7 +77,8 @@ public class PlanDao {
 
     }
 
-    public Plan create(Plan plan) {
+
+    public static Plan create(Plan plan) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement insertStm = connection.prepareStatement(CREATE_PLAN_QUERY,
                      PreparedStatement.RETURN_GENERATED_KEYS)) {
@@ -102,7 +106,8 @@ public class PlanDao {
         return null;
     }
 
-    public void update(Plan plan) {
+
+    public static void update(Plan plan) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_PLAN_QUERY)) {
             statement.setInt(4, plan.getId());
@@ -117,7 +122,8 @@ public class PlanDao {
 
     }
 
-    public void delete(Integer planId) {
+
+    public static void delete(Integer planId) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(DELETE_PLAN_QUERY)) {
             statement.setInt(1, planId);
@@ -133,5 +139,26 @@ public class PlanDao {
         }
     }
 
+    public static int countPlans(int userId) {
+        int counter = -1;
+        try (Connection connection = DbUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(COUNT_PLAN_QUERY)
+        ) {
+            statement.setInt(1, userId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    counter = resultSet.getInt("count(admin_id)");
+
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return counter;
+
+    }
+
+    
 
 }
+
