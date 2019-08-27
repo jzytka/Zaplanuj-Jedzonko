@@ -22,6 +22,7 @@ public class PlanDao {
     private static final String FIND_ALL_PLANS_QUERY = "SELECT * FROM plan;";
     private static final String READ_PLAN_QUERY = "SELECT * from plan where id = ?;";
     private static final String UPDATE_PLAN_QUERY = "UPDATE	plan SET name = ?, description = ?, admin_id = ? WHERE	id = ?;";
+
     private static final String COUNT_PLAN_QUERY = "SELECT count(admin_id) from plan where admin_id= ?;";
 
 
@@ -50,6 +51,7 @@ public class PlanDao {
     }
 
 
+
     public static List<Plan> findAll() {
         List<Plan> planList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
@@ -74,6 +76,7 @@ public class PlanDao {
         return planList;
 
     }
+
 
     public static Plan create(Plan plan) {
         try (Connection connection = DbUtil.getConnection();
@@ -103,6 +106,7 @@ public class PlanDao {
         return null;
     }
 
+
     public static void update(Plan plan) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_PLAN_QUERY)) {
@@ -117,6 +121,7 @@ public class PlanDao {
         }
 
     }
+
 
     public static void delete(Integer planId) {
         try (Connection connection = DbUtil.getConnection();
@@ -156,3 +161,4 @@ public class PlanDao {
     
 
 }
+
