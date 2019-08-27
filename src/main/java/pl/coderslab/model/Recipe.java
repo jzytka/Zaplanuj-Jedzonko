@@ -17,12 +17,10 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, String ingredients, String description, String created, String updated, int preparationTime, String preparation, Admin admin) {
+    public Recipe(String name, String ingredients, String description, int preparationTime, String preparation, Admin admin) {
         this.name = name;
         this.ingredients = ingredients;
         this.description = description;
-        this.created = created;
-        this.updated = updated;
         this.preparationTime = preparationTime;
         this.preparation = preparation;
         this.admin = admin;

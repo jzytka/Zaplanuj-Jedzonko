@@ -19,6 +19,7 @@ public class RecipeDao {
             " preparation = ?, admin_id = ? updated = now() where id = ?";
     private static final String DELETE_RECIPE_BY_ID = "delete from recipe where id = ?";
     private static final String READ_ALL_RECIPES = "select * from recipe";
+    private static final String COUNT_RECIPES_BY_USER_ID = "select count(id) from recipe where admin_id = ?";
 
     public static Recipe createRecipe(Recipe recipe) {
 
@@ -156,5 +157,30 @@ public class RecipeDao {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static int countRecipesByAdminId(int userId) {
+        //todo przemyśleć parametr podawany do metody przez osobe tworzaca sesje
+
+        try (Connection conn = DbUtil.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(COUNT_RECIPES_BY_USER_ID);) {
+
+            preparedStatement.setInt(1, userId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery();) {
+                while (resultSet.next()) {
+
+                    int counter = resultSet.getInt("count(id)");
+
+                    return counter;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }
