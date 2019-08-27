@@ -1,5 +1,6 @@
 package pl.coderslab.dao;
 
+
 import org.mindrot.jbcrypt.BCrypt;
 import pl.coderslab.model.Admin;
 import pl.coderslab.utils.DbUtil;
@@ -11,8 +12,9 @@ import java.util.List;
 
 public class AdminDao {
 
-    private static final String CREATE_ADMIN_QUERY =
-            "INSERT INTO admins(first_name, last_name, email, password, superadmin, enable) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String CREATE_ADMIN_QUERY = 
+      "INSERT INTO admins(first_name, last_name, email, password, superadmin, enable) VALUES (?, ?, ?, ?, ?, ?)";
+
     private static final String READ_ADMIN_QUERY =
             "SELECT * FROM admins where id = ?";
     private static final String UPDATE_ADMIN_QUERY =
@@ -125,6 +127,7 @@ public class AdminDao {
         }
     }
 
+
     public static boolean authorizeAdmin(String email, String password) {
         Iterator<Admin> iterator = findAll().iterator();
         while (iterator.hasNext()) {
@@ -136,3 +139,4 @@ public class AdminDao {
         return false;
     }
 }
+
