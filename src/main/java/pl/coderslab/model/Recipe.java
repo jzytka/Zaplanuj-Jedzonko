@@ -60,6 +60,7 @@ public class Recipe {
         this.description = description;
     }
 
+
     public String getCreated() {
         return created;
     }
@@ -73,6 +74,7 @@ public class Recipe {
     }
 
     public void setUpdated(String updated) {
+
         this.updated = updated;
     }
 
