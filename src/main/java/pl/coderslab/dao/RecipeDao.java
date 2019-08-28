@@ -65,8 +65,7 @@ public class RecipeDao {
                     recipe.setId(resultSet.getInt("id"));
                     recipe.setName(resultSet.getString("name"));
                     recipe.setIngredients(resultSet.getString("ingredients"));
-                  
-
+                    recipe.setDescription(resultSet.getString("description"));
                     recipe.setCreated(resultSet.getString("created"));
                     recipe.setUpdated(resultSet.getString("updated"));  
                     recipe.setPreparationTime(resultSet.getInt("preparation_time"));
@@ -133,8 +132,9 @@ public class RecipeDao {
                 Recipe recipe = new Recipe();
                 recipe.setId(resultSet.getInt("id"));
                 recipe.setName(resultSet.getString("name"));
-                recipe.setIngredients(resultSet.getString("ingredients"));
 
+                recipe.setIngredients(resultSet.getString("ingredients"));
+                recipe.setDescription(resultSet.getString("description"));
                 recipe.setCreated(resultSet.getString("created"));
                 recipe.setUpdated(resultSet.getString("updated"));
               

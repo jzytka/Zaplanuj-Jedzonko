@@ -1,23 +1,24 @@
-package pl.coderslab.utils;
+        package pl.coderslab.utils;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+        import javax.naming.Context;
+        import javax.naming.InitialContext;
+        import javax.naming.NamingException;
+        import javax.sql.DataSource;
+        import java.sql.Connection;
+        import java.sql.DriverManager;
+        import java.sql.SQLException;
 
 
 
-/* public class DbUtil {
-    private static DataSource dataSource;
+ public class DbUtil {
 
-    public static Connection getConnection() throws SQLException {
+        private static DataSource dataSource;
+
+        public static Connection getConnection() throws SQLException {
         return getInstance().getConnection();
     }
 
-    private static DataSource getInstance() {
+        private static DataSource getInstance() {
         if (dataSource == null) {
             try {
                 Context context = new InitialContext();
@@ -30,9 +31,8 @@ import java.sql.SQLException;
     }
 
 }
-*/
 
-public class DbUtil {
+/*public class DbUtil {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/scrumlab?useSSL=false&characterEncoding=utf8&serverTimezone=UTC";
     private static final String DB_USER = "root";
     private static final String DB_PASS = "coderslab";
@@ -43,7 +43,7 @@ public class DbUtil {
 
     }
 
-}
+}*/
 
 
 
