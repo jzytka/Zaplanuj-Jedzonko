@@ -29,7 +29,7 @@ public class Dashboard extends HttpServlet {
 
 
         //todo W SESJI ATRYBUT user KTÓRY NIESIE OBIEKT Admin
-        //DO TESTU sess.setAttribute("user", AdminDao.read(1));
+        //DO TESTUsess.setAttribute("user", AdminDao.read(1));
 
         if (sess.getAttribute("user") == null) {
             response.sendRedirect("/LOGOWANIE");

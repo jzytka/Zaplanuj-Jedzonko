@@ -20,6 +20,7 @@ public class RecipeDao {
     private static final String DELETE_RECIPE_BY_ID = "delete from recipe where id = ?";
     private static final String READ_ALL_RECIPES = "select * from recipe";
     private static final String COUNT_RECIPES_BY_USER_ID = "select count(id) from recipe where admin_id = ?";
+    private static final String READ_ALL_RECIPES_BY_USER_ID = "select * from recipe where admin_id = ?";
 
     public static Recipe createRecipe(Recipe recipe) {
 
@@ -65,8 +66,7 @@ public class RecipeDao {
                     recipe.setId(resultSet.getInt("id"));
                     recipe.setName(resultSet.getString("name"));
                     recipe.setIngredients(resultSet.getString("ingredients"));
-                  
-
+                    recipe.setDescription(resultSet.getString("description"));
                     recipe.setCreated(resultSet.getString("created"));
                     recipe.setUpdated(resultSet.getString("updated"));  
                     recipe.setPreparationTime(resultSet.getInt("preparation_time"));
@@ -134,6 +134,7 @@ public class RecipeDao {
                 recipe.setId(resultSet.getInt("id"));
                 recipe.setName(resultSet.getString("name"));
                 recipe.setIngredients(resultSet.getString("ingredients"));
+                recipe.setDescription(resultSet.getString("description"));
 
                 recipe.setCreated(resultSet.getString("created"));
                 recipe.setUpdated(resultSet.getString("updated"));
@@ -182,5 +183,45 @@ public class RecipeDao {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public static List<Recipe> readAllRecipesByUserId(int id) {
+        try (Connection conn = DbUtil.getConnection();
+             PreparedStatement statement = conn.prepareStatement(READ_ALL_RECIPES_BY_USER_ID)) {
+
+            List<Recipe> list = new ArrayList<>();
+
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Recipe recipe = new Recipe();
+                recipe.setId(resultSet.getInt("id"));
+                recipe.setName(resultSet.getString("name"));
+                recipe.setIngredients(resultSet.getString("ingredients"));
+                recipe.setDescription(resultSet.getString("description"));
+
+                recipe.setCreated(resultSet.getString("created"));
+                recipe.setUpdated(resultSet.getString("updated"));
+
+                recipe.setPreparationTime(resultSet.getInt("preparation_time"));
+                recipe.setPreparation(resultSet.getString("preparation"));
+                int adminId = resultSet.getInt("admin_id");
+                Admin admin = AdminDao.read(adminId);
+                recipe.setAdmin(admin);
+
+                list.add(recipe);
+            }
+
+            if (list.isEmpty()) {
+                return null;
+            }
+
+            return list;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
