@@ -1,0 +1,38 @@
+<ul class="nav flex-column long-bg">
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboard">
+            <span>Pulpit</span>
+            <i class="fas fa-angle-right"></i>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/app-recipeList">
+            <span>Przepisy</span>
+            <i class="fas fa-angle-right"></i>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/LINK">
+            <span>Plany</span>
+            <i class="fas fa-angle-right"></i>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/LINK">
+            <span>Edytuj dane</span>
+            <i class="fas fa-angle-right"></i>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="/LINK">
+            <span>Zmień hasło</span>
+            <i class="fas fa-angle-right"></i>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/LINK">
+            <span>Użytkownicy</span>
+            <i class="fas fa-angle-right"></i>
+        </a>
+    </li>
+</ul>

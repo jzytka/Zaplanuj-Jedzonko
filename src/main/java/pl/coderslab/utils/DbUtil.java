@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 
  public class DbUtil {
+
     private static DataSource dataSource;
 
         private static DataSource dataSource;
@@ -29,4 +30,7 @@ import java.sql.SQLException;
         }
         return dataSource;
     }
- }
+
+
+}
+
