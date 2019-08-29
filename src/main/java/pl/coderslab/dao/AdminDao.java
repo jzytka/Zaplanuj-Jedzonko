@@ -9,12 +9,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class AdminDao {
 
     private static final String CREATE_ADMIN_QUERY =
             "INSERT INTO admins(first_name, last_name, email, password, superadmin, enable) VALUES (?, ?, ?, ?, ?, ?)";
-
     private static final String READ_ADMIN_QUERY =
             "SELECT * FROM admins where id = ?";
     private static final String UPDATE_ADMIN_QUERY =
@@ -128,14 +128,15 @@ public class AdminDao {
     }
 
 
-    public static boolean authorizeAdmin(String email, String password) {
-        Iterator<Admin> iterator = findAll().iterator();
-        while (iterator.hasNext()) {
-            if (iterator.next().getEmail().equals(email) && BCrypt.checkpw(password, iterator.next().getPassword())) {
-                return true;
+    public static Admin authorizeAdmin(String email, String password) {
+
+            Iterator<Admin> iterator = findAll().iterator();
+            while (iterator.hasNext()) {
+                Admin admin = iterator.next();
+                if (admin.getEmail().equals(email) && BCrypt.checkpw(password, admin.getPassword())) {
+                    return admin;
+                }
             }
-        }
-        
-        return false;
+            return null;
     }
 }
