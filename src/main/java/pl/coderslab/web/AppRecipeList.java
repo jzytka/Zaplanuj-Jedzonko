@@ -31,6 +31,7 @@ public class AppRecipeList extends HttpServlet {
             List<Recipe> list = RecipeDao.readAllRecipesByUserId(user.getId());
 
             sess.setAttribute("recipeList", list);
+//todo dalej w recipe app-recipes.jsp mozna zmienic zeby wyswietlalo sie prawdziwe id ale wtedy bedzie z dupe np jakis user moze miec 3, dalj 345 itd
 
 
         }

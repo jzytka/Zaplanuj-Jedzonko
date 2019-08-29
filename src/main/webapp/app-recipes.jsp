@@ -41,9 +41,9 @@
                     </thead>
                     <tbody class="text-color-lighter">
 
-                    <c:forEach items="${recipeList}" var="rep">
+                    <c:forEach items="${recipeList}" var="rep" varStatus="theCount">
                     <tr class="d-flex">
-                        <th scope="row" class="col-1">${rep.id}</th>
+                        <th scope="row" class="col-1">${theCount.count}</th>
                         <td class="col-2">
                             ${rep.name}
                         </td>
