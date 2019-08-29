@@ -24,7 +24,7 @@ public class Login extends HttpServlet {
 
         if (admin != null) {
             session.setAttribute("email", login);
-
+            session.setAttribute("id", admin.getId());
             if (admin.getSuperadmin() == 0) {
                 getServletContext().getRequestDispatcher("/dashboard.html").forward(request, response);
             } else if (admin.getSuperadmin() == 1) {
