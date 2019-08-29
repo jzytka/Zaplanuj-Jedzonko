@@ -16,13 +16,13 @@ public class AppFilter implements Filter {
         HttpSession session = request.getSession();
 
         String URL = request.getRequestURL().toString();
-        System.out.println(URL);
 
         if (URL.matches("(http://localhost:8080/app-.*)||http://localhost:8080/dashboard.html")) {
             if (session.getAttribute("email") == null) {
                 response.sendRedirect("/login.jsp");
             }
         }
+
         chain.doFilter(req, resp);
     }
 
