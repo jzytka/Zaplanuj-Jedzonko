@@ -9,30 +9,34 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/register")
-public class Register extends HttpServlet {
+@WebServlet("/login")
+public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletUtil.setCharset(request, response);
+        HttpSession session = request.getSession();
 
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
-        String email = request.getParameter("email");
+        String login = request.getParameter("email");
         String password = request.getParameter("password");
+        Admin admin = AdminDao.authorizeAdmin(login, password);
 
-        //response.getWriter().append(name).append(surname).append(email).append(password);
+        if (admin != null) {
+            session.setAttribute("email", login);
 
-
-        Admin admin = new Admin(name, surname, email, password, 0, 1);
-
-        AdminDao.create(admin);
+            if (admin.getSuperadmin() == 0) {
+                getServletContext().getRequestDispatcher("/dashboard.html").forward(request, response);
+            } else if (admin.getSuperadmin() == 1) {
+                session.setAttribute("superadmin", 1);
+                getServletContext().getRequestDispatcher("/super-admin-users.html").forward(request, response);
+            }
+        }
 
         response.sendRedirect("/login.jsp");
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/registration.jsp");
+        response.sendRedirect("/login.jsp");
     }
 }
