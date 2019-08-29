@@ -1,5 +1,4 @@
-package pl.coderslab.utils;
-
+        package pl.coderslab.utils;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -9,15 +8,18 @@ import java.sql.SQLException;
 
 
 
+
  public class DbUtil {
 
     private static DataSource dataSource;
 
-    public static Connection getConnection() throws SQLException {
+        private static DataSource dataSource;
+
+        public static Connection getConnection() throws SQLException {
         return getInstance().getConnection();
     }
 
-    private static DataSource getInstance() {
+        private static DataSource getInstance() {
         if (dataSource == null) {
             try {
                 Context context = new InitialContext();
@@ -29,4 +31,6 @@ import java.sql.SQLException;
         return dataSource;
     }
 
+
 }
+

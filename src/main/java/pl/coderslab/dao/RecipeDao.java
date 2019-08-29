@@ -135,7 +135,6 @@ public class RecipeDao {
                 recipe.setName(resultSet.getString("name"));
                 recipe.setIngredients(resultSet.getString("ingredients"));
                 recipe.setDescription(resultSet.getString("description"));
-
                 recipe.setCreated(resultSet.getString("created"));
                 recipe.setUpdated(resultSet.getString("updated"));
               
