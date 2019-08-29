@@ -25,13 +25,13 @@ public class PlanDao {
     private static final String UPDATE_PLAN_QUERY = "UPDATE	plan SET name = ?, description = ?, admin_id = ? WHERE	id = ?;";
 
     private static final String COUNT_PLAN_QUERY = "SELECT count(admin_id) from plan where admin_id= ?;";
-    private static final String GET_LAST_RECIPE_PLAN_BU_USER_ID = "SELECT day_name.name as day_name, meal_name,  recipe.name as recipe_name, recipe.description as recipe_description\n"+
+    private static final String GET_LAST_RECIPE_PLAN_BU_USER_ID = "SELECT day_name.name as day_name, meal_name, recipe.id, recipe.name as recipe_name, recipe.description as recipe_description\n"+
             "FROM `recipe_plan`\n"+
             "JOIN day_name on day_name.id=day_name_id\n"+
             "JOIN recipe on recipe.id=recipe_id WHERE\n"+
             "recipe_plan.plan_id =  (SELECT MAX(id) from plan WHERE admin_id = ?)\n"+
             "ORDER by day_name.display_order, recipe_plan.display_order;";
-    private static final String GET_RECIPE_PLAN_BY_PLAN_ID = "SELECT day_name.name as day_name, meal_name, recipe.name as recipe_name, recipe.description as recipe_description\n" +
+    private static final String GET_RECIPE_PLAN_BY_PLAN_ID = "SELECT day_name.name as day_name, meal_name, recipe.id, recipe.name as recipe_name, recipe.description as recipe_description\n" +
             "FROM `recipe_plan`\n" +
             "JOIN day_name on day_name.id=day_name_id\n" +
             "JOIN recipe on recipe.id=recipe_id WHERE plan_id = ?\n" +
@@ -181,6 +181,7 @@ public class PlanDao {
                     RecipePlanNonObjShort recipePlanNonObjShort = new RecipePlanNonObjShort();
                     recipePlanNonObjShort.setDayName(resultSet.getString("day_name"));
                     recipePlanNonObjShort.setMealName(resultSet.getString("meal_name"));
+                    recipePlanNonObjShort.setRecipeId(resultSet.getString("id"));
                     recipePlanNonObjShort.setRecipeName(resultSet.getString("recipe_name"));
                     recipePlanNonObjShort.setRecipeDescription(resultSet.getString("recipe_description"));
                     list.add(recipePlanNonObjShort);
@@ -208,6 +209,7 @@ public class PlanDao {
                     RecipePlanNonObjShort recipePlanNonObjShort = new RecipePlanNonObjShort();
                     recipePlanNonObjShort.setDayName(resultSet.getString("day_name"));
                     recipePlanNonObjShort.setMealName(resultSet.getString("meal_name"));
+                    recipePlanNonObjShort.setRecipeId(resultSet.getString("id"));
                     recipePlanNonObjShort.setRecipeName(resultSet.getString("recipe_name"));
                     recipePlanNonObjShort.setRecipeDescription(resultSet.getString("recipe_description"));
                     list.add(recipePlanNonObjShort);

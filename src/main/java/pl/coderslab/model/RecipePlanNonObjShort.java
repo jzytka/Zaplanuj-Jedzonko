@@ -5,17 +5,19 @@ public class RecipePlanNonObjShort {
     //nie-obiektowo ew. pozniej pozamieniac
     private String dayName;
     private String mealName;
+    private String recipeId;
     private String recipeName;
     private String recipeDescription;
 
-    public RecipePlanNonObjShort(String dayName, String mealName, String recipe_name, String recipeDescription) {
-        this.dayName = dayName;
-        this.mealName = mealName;
-        this.recipeName = recipe_name;
-        this.recipeDescription = recipeDescription;
+    public RecipePlanNonObjShort() {
     }
 
-    public RecipePlanNonObjShort() {
+    public RecipePlanNonObjShort(String dayName, String mealName, String recipeId, String recipeName, String recipeDescription) {
+        this.dayName = dayName;
+        this.mealName = mealName;
+        this.recipeId = recipeId;
+        this.recipeName = recipeName;
+        this.recipeDescription = recipeDescription;
     }
 
     public String getDayName() {
@@ -34,12 +36,20 @@ public class RecipePlanNonObjShort {
         this.mealName = mealName;
     }
 
+    public String getRecipeId() {
+        return recipeId;
+    }
+
+    public void setRecipeId(String recipeId) {
+        this.recipeId = recipeId;
+    }
+
     public String getRecipeName() {
         return recipeName;
     }
 
-    public void setRecipeName(String recipe_name) {
-        this.recipeName = recipe_name;
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 
     public String getRecipeDescription() {
@@ -55,6 +65,7 @@ public class RecipePlanNonObjShort {
         return "RecipePlanNonObjShort{" +
                 "dayName='" + dayName + '\'' +
                 ", mealName='" + mealName + '\'' +
+                ", recipeId='" + recipeId + '\'' +
                 ", recipeName='" + recipeName + '\'' +
                 ", recipeDescription='" + recipeDescription + '\'' +
                 '}';

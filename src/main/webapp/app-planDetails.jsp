@@ -79,7 +79,7 @@
                                         <a href="#" class="btn btn-danger rounded-0 text-light m-1">UsuńLINK</a>
                                     </td>
                                     <td class="col-2 center">
-                                        <a href="app-details-schedules.html"
+                                        <a href="/recipeDetail?recipeId=${rep.recipeId}"
                                            class="btn btn-info rounded-0 text-light m-1">SzczegółyLINK</a>
                                     </td>
                                 </tr>
@@ -107,7 +107,7 @@
                                         <a href="#" class="btn btn-danger rounded-0 text-light m-1">UsuńLINK</a>
                                     </td>
                                     <td class="col-2 center">
-                                        <a href="app-details-schedules.html"
+                                        <a href="/recipeDetail?recipeId=${rep.recipeId}"
                                            class="btn btn-info rounded-0 text-light m-1">SzczegółyLINK</a>
                                     </td>
                                 </tr>
@@ -135,7 +135,7 @@
                                         <a href="#" class="btn btn-danger rounded-0 text-light m-1">UsuńLINK</a>
                                     </td>
                                     <td class="col-2 center">
-                                        <a href="app-details-schedules.html"
+                                        <a href="/recipeDetail?recipeId=${rep.recipeId}"
                                            class="btn btn-info rounded-0 text-light m-1">SzczegółyLINK</a>
                                     </td>
                                 </tr>
@@ -164,7 +164,7 @@
                                         <a href="#" class="btn btn-danger rounded-0 text-light m-1">UsuńLINK</a>
                                     </td>
                                     <td class="col-2 center">
-                                        <a href="app-details-schedules.html"
+                                        <a href="/recipeDetail?recipeId=${rep.recipeId}"
                                            class="btn btn-info rounded-0 text-light m-1">SzczegółyLINK</a>
                                     </td>
                                 </tr>
@@ -193,7 +193,7 @@
                                         <a href="#" class="btn btn-danger rounded-0 text-light m-1">UsuńLINK</a>
                                     </td>
                                     <td class="col-2 center">
-                                        <a href="app-details-schedules.html"
+                                        <a href="/recipeDetail?recipeId=${rep.recipeId}"
                                            class="btn btn-info rounded-0 text-light m-1">SzczegółyLINK</a>
                                     </td>
                                 </tr>
@@ -222,7 +222,7 @@
                                         <a href="#" class="btn btn-danger rounded-0 text-light m-1">UsuńLINK</a>
                                     </td>
                                     <td class="col-2 center">
-                                        <a href="app-details-schedules.html"
+                                        <a href="/recipeDetail?recipeId=${rep.recipeId}"
                                            class="btn btn-info rounded-0 text-light m-1">SzczegółyLINK</a>
                                     </td>
                                 </tr>
@@ -251,7 +251,7 @@
                                         <a href="#" class="btn btn-danger rounded-0 text-light m-1">UsuńLINK</a>
                                     </td>
                                     <td class="col-2 center">
-                                        <a href="app-details-schedules.html"
+                                        <a href="/recipeDetail?recipeId=${rep.recipeId}"
                                            class="btn btn-info rounded-0 text-light m-1">SzczegółyLINK</a>
                                     </td>
                                 </tr>
