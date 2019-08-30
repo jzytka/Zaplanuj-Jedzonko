@@ -26,11 +26,10 @@ public class AppRecipeList extends HttpServlet {
         if (sess.getAttribute("admin") != null) {
             Admin admin = (Admin) sess.getAttribute("admin");
             List<Recipe> list = RecipeDao.readAllRecipesByUserId(admin.getId());
-            sess.setAttribute("recipeList", list);
+            request.setAttribute("list", list);
         } else if (sess.getAttribute("admin") == null) {
             response.sendRedirect("/login");
         }
-//todo dalej w recipe app-recipes.jsp mozna zmienic zeby wyswietlalo sie prawdziwe id ale wtedy bedzie z dupe np jakis user moze miec 3, dalj 345 itd
 
 
         getServletContext().getRequestDispatcher("/app-recipes.jsp").forward(request, response);

@@ -19,7 +19,6 @@ import java.io.IOException;
 public class AddRecipe extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         HttpSession session = request.getSession();
         Admin admin = (Admin) session.getAttribute("admin");
 
@@ -32,10 +31,9 @@ public class AddRecipe extends HttpServlet {
         String prepare = request.getParameter("prepare");
         String ingredients = request.getParameter("ingredients");
 
-        int id = admin.getId(); //przypisana liczba tylko po to  aby kompilator się zamknął
 
 
-        Recipe recipe = new Recipe(name, ingredients, description, time, prepare, AdminDao.read(id));
+        Recipe recipe = new Recipe(name, ingredients, description, time, prepare, admin);
         RecipeDao.createRecipe(recipe);
 
         response.sendRedirect("/app-recipeList");

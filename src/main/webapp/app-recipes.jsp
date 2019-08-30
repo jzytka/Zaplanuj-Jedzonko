@@ -41,17 +41,17 @@
                     </thead>
                     <tbody class="text-color-lighter">
 
-                    <c:forEach items="${recipeList}" var="rep" varStatus="theCount">
+                    <c:forEach items="${list}" var="recipe">
                     <tr class="d-flex">
-                        <th scope="row" class="col-1">${theCount.count}</th>
+                        <th scope="row" class="col-1">${recipe.id}</th>
                         <td class="col-2">
-                            ${rep.name}
+                            ${recipe.name}
                         </td>
-                        <td class="col-7">${rep.description}</td>
+                        <td class="col-7">${recipe.description}</td>
                         <td class="col-2 d-flex align-items-center justify-content-center flex-wrap">
-                            <a href="#" class="btn btn-danger rounded-0 text-light m-1">UsuńLINK</a>
-                            <a href="/recipeDetails?recipeId=${rep.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
-                            <a href="/app-edit-recipe.html" class="btn btn-warning rounded-0 text-light m-1">EdytujLINK</a>
+                            <a href="/app/recipe/delete?id=${recipe.id}" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                            <a href="/recipeDetails?recipeId=${recipe.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
+                            <a href="/app/recipe/edit?id=${recipe.id}" class="btn btn-warning rounded-0 text-light m-1">Edytuj</a>
                         </td>
                     </tr>
                     </c:forEach>
