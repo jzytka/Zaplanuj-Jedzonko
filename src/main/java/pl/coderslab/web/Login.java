@@ -26,8 +26,8 @@ public class Login extends HttpServlet {
             session.setAttribute("admin", admin);
 
             if (admin.getSuperadmin() == 0) {
-                getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
-                //response.sendRedirect("/dashboard");
+                //getServletContext().getRequestDispatcher("/dashboard").forward(request, response);
+                response.sendRedirect("/dashboard");
 
             } else if (admin.getSuperadmin() == 1) {
                 getServletContext().getRequestDispatcher("/super-admin-users.html").forward(request, response);

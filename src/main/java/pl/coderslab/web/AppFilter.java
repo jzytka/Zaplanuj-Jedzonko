@@ -19,7 +19,7 @@ public class AppFilter implements Filter {
 
         String URL = request.getRequestURL().toString();
 
-        if (URL.matches("(http://localhost:8080/app.*)||(http://localhost:8080/dashboard.jsp)||(http://localhost:8080/super-admin-users.html)")) {
+        if (URL.matches("(http://localhost:8080/app.*)||(http://localhost:8080/dashboard)||(http://localhost:8080/super-admin-users.html)")) {
             Admin admin = (Admin) session.getAttribute("admin");
             if (admin == null) {
                 response.sendRedirect("/login");

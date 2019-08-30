@@ -19,11 +19,14 @@ public class RecipeDetails extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletUtil.setCharset(request, response);
-        Recipe recipe = new Recipe();
+//        Recipe recipe = new Recipe();
 
         //todo pobrać id z formularza do wyszukiwania przepisów narazie jest na sztywno wpisane 8
 
-        recipe = RecipeDao.readRecipeById(8);
+        String recipeId = request.getParameter("recipeId");
+        int recId = Integer.parseInt(recipeId);
+
+        Recipe recipe = RecipeDao.readRecipeById(recId);
         String[] ingredients = recipe.getIngredients().split(", ");
         //add(recipe);
         request.setAttribute("ingredients", ingredients);

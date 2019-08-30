@@ -1,5 +1,6 @@
 package pl.coderslab.web;
 
+import pl.coderslab.dao.AdminDao;
 import pl.coderslab.dao.RecipeDao;
 import pl.coderslab.model.Admin;
 import pl.coderslab.model.Recipe;
@@ -21,9 +22,13 @@ public class AppRecipeList extends HttpServlet {
 
         HttpSession sess = request.getSession();
 
-        if (sess.getAttribute("id") != null) {
-            List<Recipe> list = RecipeDao.readAllRecipesByUserId((int) sess.getAttribute("id"));
+
+        if (sess.getAttribute("admin") != null) {
+            Admin admin = (Admin) sess.getAttribute("admin");
+            List<Recipe> list = RecipeDao.readAllRecipesByUserId(admin.getId());
             sess.setAttribute("recipeList", list);
+        } else if (sess.getAttribute("admin") == null) {
+            response.sendRedirect("/login");
         }
 //todo dalej w recipe app-recipes.jsp mozna zmienic zeby wyswietlalo sie prawdziwe id ale wtedy bedzie z dupe np jakis user moze miec 3, dalj 345 itd
 

@@ -4,6 +4,7 @@ import pl.coderslab.dao.AdminDao;
 import pl.coderslab.dao.PlanDao;
 import pl.coderslab.dao.RecipeDao;
 import pl.coderslab.model.Admin;
+import pl.coderslab.model.Plan;
 import pl.coderslab.model.RecipePlanNonObjShort;
 
 import javax.servlet.ServletException;
@@ -25,7 +26,14 @@ public class Dashboard extends HttpServlet {
 
         HttpSession sess = request.getSession();
 
+       // sess.setAttribute("admin", AdminDao.read(1));
+        //zostawcie to to do testu!!!!!!!
+
         Admin admin = (Admin) sess.getAttribute("admin");
+
+
+
+
 
         if (admin == null) {
             getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
@@ -33,6 +41,7 @@ public class Dashboard extends HttpServlet {
             request.setAttribute("recipesCount", RecipeDao.countRecipesByAdminId(admin.getId()));
             request.setAttribute("plansCount", PlanDao.countPlans(admin.getId()));
             request.setAttribute("lastPlan", PlanDao.getLastPlanByUserId(admin.getId()));
+
 //            request.setAttribute("lastRecipePlan", PlanDao.getRecipePlanByPLanId(PlanDao.getLastPlanByUserId(user.getId()).getId()));
             List<RecipePlanNonObjShort> list = PlanDao.getRecipePlanByPLanId(PlanDao.getLastPlanByUserId(admin.getId()).getId());
 
@@ -44,7 +53,8 @@ public class Dashboard extends HttpServlet {
             List<RecipePlanNonObjShort> sob = new ArrayList<>();
             List<RecipePlanNonObjShort> ndz = new ArrayList<>();
 
-            if (!list.isEmpty()) {
+            if (list != null) {
+
                 ListIterator<RecipePlanNonObjShort> listIterator = list.listIterator();
 
 
@@ -74,11 +84,11 @@ public class Dashboard extends HttpServlet {
                 request.setAttribute("pt", pt);
                 request.setAttribute("sob", sob);
                 request.setAttribute("ndz", ndz);
-
-                getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
-            } else {
-                getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
             }
+
+
+
+            getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
         }
     }
 }

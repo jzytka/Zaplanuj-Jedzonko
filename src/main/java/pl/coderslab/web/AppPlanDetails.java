@@ -20,13 +20,14 @@ public class AppPlanDetails extends HttpServlet {
 
         //todo na razie probnie okresliny parametr id planu, pozniej prawdopodobnie okreslic go w adresie, ktory dopisac w jsp przez jstl
 
-        request.setAttribute("planId", 6);
+        //request.setAttribute("planId", 6);
         //to jest do wyjebania
 
 
 
 
-        int planId = (int)request.getAttribute("planId");
+        String planIdS = request.getParameter("planId");
+        int planId = Integer.parseInt(planIdS);
 
         request.setAttribute("plan", PlanDao.read(planId));
 

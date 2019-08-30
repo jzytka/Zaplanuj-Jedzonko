@@ -59,7 +59,7 @@
             </div>
             <div class="m-4 p-4 border-dashed">
                 <h2 class="dashboard-content-title">
-                    <span>Ostatnio dodany plan:</span> ${lastPlan.name}
+                    <span>Ostatnio dodany plan:</span><c:if test="${not empty lastPlan.name}"> ${lastPlan.name}</c:if><c:if test="${empty lastPlan.name}"> Brak planów</c:if>
                 </h2>
                 <c:if test="${not empty pon}">
 
@@ -76,7 +76,7 @@
                     <tr class="d-flex">
                         <td class="col-2">${rep.mealName}</td>
                         <td class="col-8">${rep.recipeName}</td>
-                        <td class="col-2"><button type="button" class="btn btn-primary rounded-0">SzczegółyLINK</button></td>
+                        <td class="col-2"><button onclick="location.href='/recipeDetails?recipeId=${rep.recipeId}'" type="button" class="btn btn-primary rounded-0">Szczegóły</button></td>
                     </tr>
                     </c:forEach>
                     </tbody>
@@ -99,7 +99,7 @@
                             <tr class="d-flex">
                                 <td class="col-2">${rep.mealName}</td>
                                 <td class="col-8">${rep.recipeName}</td>
-                                <td class="col-2"><button type="button" class="btn btn-primary rounded-0">SzczegółyLINK</button></td>
+                                <td class="col-2"><button onclick="location.href='/recipeDetails?recipeId=${rep.recipeId}'" type="button" class="btn btn-primary rounded-0">Szczegóły</button></td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -122,7 +122,7 @@
                             <tr class="d-flex">
                                 <td class="col-2">${rep.mealName}</td>
                                 <td class="col-8">${rep.recipeName}</td>
-                                <td class="col-2"><button type="button" class="btn btn-primary rounded-0">SzczegółyLINK</button></td>
+                                <td class="col-2"><button onclick="location.href='/recipeDetails?recipeId=${rep.recipeId}'" type="button" class="btn btn-primary rounded-0">Szczegóły</button></td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -145,7 +145,7 @@
                             <tr class="d-flex">
                                 <td class="col-2">${rep.mealName}</td>
                                 <td class="col-8">${rep.recipeName}</td>
-                                <td class="col-2"><button type="button" class="btn btn-primary rounded-0">SzczegółyLINK</button></td>
+                                <td class="col-2"><button onclick="location.href='/recipeDetails?recipeId=${rep.recipeId}'" type="button" class="btn btn-primary rounded-0">Szczegóły</button></td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -168,7 +168,7 @@
                             <tr class="d-flex">
                                 <td class="col-2">${rep.mealName}</td>
                                 <td class="col-8">${rep.recipeName}</td>
-                                <td class="col-2"><button type="button" class="btn btn-primary rounded-0">SzczegółyLINK</button></td>
+                                <td class="col-2"><button onclick="location.href='/recipeDetails?recipeId=${rep.recipeId}'" type="button" class="btn btn-primary rounded-0">Szczegóły</button></td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -191,7 +191,7 @@
                             <tr class="d-flex">
                                 <td class="col-2">${rep.mealName}</td>
                                 <td class="col-8">${rep.recipeName}</td>
-                                <td class="col-2"><button type="button" class="btn btn-primary rounded-0">SzczegółyLINK</button></td>
+                                <td class="col-2"><button onclick="location.href='/recipeDetails?recipeId=${rep.recipeId}'" type="button" class="btn btn-primary rounded-0">Szczegóły</button></td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -214,7 +214,7 @@
                             <tr class="d-flex">
                                 <td class="col-2">${rep.mealName}</td>
                                 <td class="col-8">${rep.recipeName}</td>
-                                <td class="col-2"><button type="button" class="btn btn-primary rounded-0">SzczegółyLINK</button></td>
+                                <td class="col-2"><button onclick="location.href='/recipeDetails?recipeId=${rep.recipeId}'" type="button" class="btn btn-primary rounded-0">Szczegóły</button></td>
                             </tr>
                         </c:forEach>
                         </tbody>

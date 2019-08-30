@@ -50,7 +50,7 @@
                         <td class="col-7">${rep.description}</td>
                         <td class="col-2 d-flex align-items-center justify-content-center flex-wrap">
                             <a href="#" class="btn btn-danger rounded-0 text-light m-1">UsuńLINK</a>
-                            <a href="/app-recipe-details.html" class="btn btn-info rounded-0 text-light m-1">SzczegółyLINK</a>
+                            <a href="/recipeDetails?recipeId=${rep.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                             <a href="/app-edit-recipe.html" class="btn btn-warning rounded-0 text-light m-1">EdytujLINK</a>
                         </td>
                     </tr>
