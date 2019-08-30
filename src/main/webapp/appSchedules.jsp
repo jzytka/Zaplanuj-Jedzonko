@@ -38,7 +38,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/app-recipes.html">
+                <a class="nav-link" href="/app-recipeList"<%--/app-recipes.jsp--%>">
                     <span>Przepisy</span>
                     <i class="fas fa-angle-right"></i>
                 </a>
@@ -100,7 +100,7 @@
                                 <%--Pojęcie kuchnia wegetariańska określa pożywienie, które ani nie zawiera mięsa, ani nie zostało przygotowane na bazie pochodzącej z mięsa (np. na rosole drobiowym). Laktoowowegetarianie (najczęściej spotykany typ wegetarian w zachodnim świecie) spożywają nabiał, laktowegetarianie wykluczają jaja, ale nie inne produkty nabiałowe.--%>
                             </td>
                             <td class="col-2 d-flex align-items-center justify-content-center flex-wrap"><a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
-                                <a href="/app-details-schedules.html" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
+                                <a href="/app-planDetails?planId=${plan.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                                 <a href="/app-edit-schedules.html" class="btn btn-warning rounded-0 text-light m-1">Edytuj</a>
                             </td>
                         </tr>
