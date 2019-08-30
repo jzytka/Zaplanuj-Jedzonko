@@ -24,8 +24,6 @@ public class AppPlanDetails extends HttpServlet {
         //to jest do wyjebania
 
 
-
-
         String planIdS = request.getParameter("planId");
         int planId = Integer.parseInt(planIdS);
 
@@ -42,7 +40,7 @@ public class AppPlanDetails extends HttpServlet {
         List<RecipePlanNonObjShort> sob = new ArrayList<>();
         List<RecipePlanNonObjShort> ndz = new ArrayList<>();
 
-        try {
+        if (list != null) {
             ListIterator<RecipePlanNonObjShort> listIterator = list.listIterator();
 
 
@@ -73,15 +71,12 @@ public class AppPlanDetails extends HttpServlet {
             request.setAttribute("sob", sob);
             request.setAttribute("ndz", ndz);
 
-            getServletContext().getRequestDispatcher("/app-planDetails.jsp").forward(request, response);
 
         }
-        catch (NullPointerException e) {
-            response.sendRedirect("/planList");
-        }
 
-
-
-
+        getServletContext().getRequestDispatcher("/app-planDetails.jsp").forward(request, response);
     }
+
+
 }
+
