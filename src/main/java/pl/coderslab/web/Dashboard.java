@@ -26,7 +26,7 @@ public class Dashboard extends HttpServlet {
 
         HttpSession sess = request.getSession();
 
-       // sess.setAttribute("admin", AdminDao.read(1));
+        //sess.setAttribute("admin", AdminDao.read(1));
         //zostawcie to to do testu!!!!!!!
 
         Admin admin = (Admin) sess.getAttribute("admin");
