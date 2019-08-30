@@ -80,7 +80,7 @@ public class AdminDao {
             statement.setString(4, admin.getPassword());
             statement.setInt(5, admin.getSuperadmin());
             statement.setInt(6, admin.getEnable());
-            statement.setInt(6, admin.getId());
+            statement.setInt(7, admin.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

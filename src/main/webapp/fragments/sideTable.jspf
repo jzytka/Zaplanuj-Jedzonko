@@ -18,13 +18,13 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/LINK">
+        <a class="nav-link" href="/editData">
             <span>Edytuj dane</span>
             <i class="fas fa-angle-right"></i>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link disabled" href="/LINK">
+        <a class="nav-link disabled" href="/editPassword">
             <span>Zmień hasło</span>
             <i class="fas fa-angle-right"></i>
         </a>
