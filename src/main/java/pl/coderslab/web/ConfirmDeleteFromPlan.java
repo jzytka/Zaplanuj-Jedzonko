@@ -25,7 +25,6 @@ public class ConfirmDeleteFromPlan extends HttpServlet {
                 .append("<a href='app-details-schedules.jsp' class='btn btn-info rounded-0 text-light m-1'>Anuluj</a>");
 
 
-        //response.sendRedirect(""); //todo wpisać adres strony przekierowującej
     }
 }
 /*
