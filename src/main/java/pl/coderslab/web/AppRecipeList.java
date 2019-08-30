@@ -21,20 +21,11 @@ public class AppRecipeList extends HttpServlet {
 
         HttpSession sess = request.getSession();
 
-        if (sess.getAttribute("user") == null) {
-            response.sendRedirect("/LOGOWANIE");
-            //zmienic adres
-        } else {
-
-            Admin user = (Admin) sess.getAttribute("user");
-
-            List<Recipe> list = RecipeDao.readAllRecipesByUserId(user.getId());
-
+        if (sess.getAttribute("id") != null) {
+            List<Recipe> list = RecipeDao.readAllRecipesByUserId((int) sess.getAttribute("id"));
             sess.setAttribute("recipeList", list);
-//todo dalej w recipe app-recipes.jsp mozna zmienic zeby wyswietlalo sie prawdziwe id ale wtedy bedzie z dupe np jakis user moze miec 3, dalj 345 itd
-
-
         }
+//todo dalej w recipe app-recipes.jsp mozna zmienic zeby wyswietlalo sie prawdziwe id ale wtedy bedzie z dupe np jakis user moze miec 3, dalj 345 itd
 
 
         getServletContext().getRequestDispatcher("/app-recipes.jsp").forward(request, response);

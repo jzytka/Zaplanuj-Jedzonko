@@ -16,7 +16,6 @@ import java.util.List;
 @WebServlet("/planList")
 public class PlanList extends HttpServlet {
 
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletUtil.setCharset(request, response);
         List<Plan> plans = PlanDao.findAll();

@@ -13,8 +13,6 @@ import java.sql.SQLException;
 
     private static DataSource dataSource;
 
-        private static DataSource dataSource;
-
         public static Connection getConnection() throws SQLException {
         return getInstance().getConnection();
     }

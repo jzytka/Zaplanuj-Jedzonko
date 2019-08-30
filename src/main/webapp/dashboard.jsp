@@ -33,9 +33,9 @@
                         </a>
                     </div>
                     <div class="menu-item border-dashed">
-                        <a href="">
+                        <a href="/app/plan/add">
                             <i class="far fa-plus-square icon-plus-square"></i>
-                            <span class="title">dodaj planLINK</span>
+                            <span class="title">Dodaj plan</span>
                         </a>
                     </div>
                     <div class="menu-item border-dashed">

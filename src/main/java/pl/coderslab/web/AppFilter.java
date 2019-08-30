@@ -1,5 +1,7 @@
 package pl.coderslab.web;
 
+import pl.coderslab.model.Admin;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -17,9 +19,10 @@ public class AppFilter implements Filter {
 
         String URL = request.getRequestURL().toString();
 
-        if (URL.matches("(http://localhost:8080/app-.*)||http://localhost:8080/dashboard.html")) {
-            if (session.getAttribute("email") == null) {
-                response.sendRedirect("/login.jsp");
+        if (URL.matches("(http://localhost:8080/app.*)||(http://localhost:8080/dashboard.jsp)||(http://localhost:8080/super-admin-users.html)")) {
+            Admin admin = (Admin) session.getAttribute("admin");
+            if (admin == null) {
+                response.sendRedirect("/login");
             }
         }
 

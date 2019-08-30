@@ -23,20 +23,22 @@ public class Login extends HttpServlet {
         Admin admin = AdminDao.authorizeAdmin(login, password);
 
         if (admin != null) {
-            session.setAttribute("email", login);
-            session.setAttribute("id", admin.getId());
+            session.setAttribute("admin", admin);
+
             if (admin.getSuperadmin() == 0) {
-                getServletContext().getRequestDispatcher("/dashboard.html").forward(request, response);
+                getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
+                //response.sendRedirect("/dashboard");
+
             } else if (admin.getSuperadmin() == 1) {
-                session.setAttribute("superadmin", 1);
                 getServletContext().getRequestDispatcher("/super-admin-users.html").forward(request, response);
             }
-        }
 
-        response.sendRedirect("/login.jsp");
+        } else {
+            response.sendRedirect("/login");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/login.jsp");
+        getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
     }
 }
