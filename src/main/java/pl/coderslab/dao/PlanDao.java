@@ -1,10 +1,7 @@
 package pl.coderslab.dao;
 
 import pl.coderslab.exception.NotFoundException;
-import pl.coderslab.model.Admin;
-import pl.coderslab.model.Book;
-import pl.coderslab.model.Plan;
-import pl.coderslab.model.RecipePlanNonObjShort;
+import pl.coderslab.model.*;
 import pl.coderslab.utils.DbUtil;
 
 import java.sql.Connection;
@@ -25,11 +22,11 @@ public class PlanDao {
     private static final String UPDATE_PLAN_QUERY = "UPDATE	plan SET name = ?, description = ?, admin_id = ? WHERE	id = ?;";
 
     private static final String COUNT_PLAN_QUERY = "SELECT count(admin_id) from plan where admin_id= ?;";
-    private static final String GET_LAST_RECIPE_PLAN_BU_USER_ID = "SELECT day_name.name as day_name, meal_name, recipe.id, recipe.name as recipe_name, recipe.description as recipe_description\n"+
-            "FROM `recipe_plan`\n"+
-            "JOIN day_name on day_name.id=day_name_id\n"+
-            "JOIN recipe on recipe.id=recipe_id WHERE\n"+
-            "recipe_plan.plan_id =  (SELECT MAX(id) from plan WHERE admin_id = ?)\n"+
+    private static final String GET_LAST_RECIPE_PLAN_BU_USER_ID = "SELECT day_name.name as day_name, meal_name, recipe.id, recipe.name as recipe_name, recipe.description as recipe_description\n" +
+            "FROM `recipe_plan`\n" +
+            "JOIN day_name on day_name.id=day_name_id\n" +
+            "JOIN recipe on recipe.id=recipe_id WHERE\n" +
+            "recipe_plan.plan_id =  (SELECT MAX(id) from plan WHERE admin_id = ?)\n" +
             "ORDER by day_name.display_order, recipe_plan.display_order;";
     private static final String GET_RECIPE_PLAN_BY_PLAN_ID = "SELECT day_name.name as day_name, meal_name, recipe.id, recipe.name as recipe_name, recipe.description as recipe_description\n" +
             "FROM `recipe_plan`\n" +
@@ -37,6 +34,7 @@ public class PlanDao {
             "JOIN recipe on recipe.id=recipe_id WHERE plan_id = ?\n" +
             "ORDER by day_name.display_order, recipe_plan.display_order;";
     private static final String GET_LAST_PLAN_BY_USER_ID = "select * from plan where id =(select max(id) from plan) and admin_id = ?;";
+    private static final String GET_PLANS_BU_USER_ID = "select * from plan where admin_id = ?";
 
 
     public static Plan read(int id) {
@@ -248,6 +246,40 @@ public class PlanDao {
         }
         return plan;
 
+    }
+
+    public static List<Plan> readAllPlansByUserId(int id) {
+        try (Connection conn = DbUtil.getConnection();
+             PreparedStatement statement = conn.prepareStatement(GET_PLANS_BU_USER_ID)) {
+
+            List<Plan> list = new ArrayList<>();
+
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Plan plan = new Plan();
+                plan.setId(resultSet.getInt("id"));
+                plan.setName(resultSet.getString("name"));
+                plan.setDescription(resultSet.getString("description"));
+                plan.setCreated(resultSet.getString("created"));
+                int adminId = resultSet.getInt("admin_id");
+                Admin admin = AdminDao.read(adminId);
+                plan.setAdmin(admin);
+
+                list.add(plan);
+            }
+
+            if (list.isEmpty()) {
+                return null;
+            }
+
+            return list;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 
