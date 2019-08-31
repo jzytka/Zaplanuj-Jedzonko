@@ -69,7 +69,7 @@
             <div class="dashboard-content border-dashed p-3 m-4 view-height">
                 <div class="mt-4 ml-4 mr-4">
 
-                    <form action="/app/recipe/edit" method="post">
+                    <form action="/app-recipeEdit" method="post">
                         <div class="row border-bottom border-3">
                             <div class="col"><h3 class="color-header text-uppercase">Edycja przepisu</h3></div>
                             <div class="col d-flex justify-content-end mb-2"><button type="submit" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Zapisz</button></div>
