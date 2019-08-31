@@ -41,13 +41,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/LINK">
+                <a class="nav-link" href="/editData">
                     <span>Edytuj dane</span>
                     <i class="fas fa-angle-right"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="/LINK">
+                <a class="nav-link disabled" href="/editPassword">
                     <span>Zmień hasło</span>
                     <i class="fas fa-angle-right"></i>
                 </a>
@@ -80,7 +80,7 @@
                     <div class="menu-item border-dashed">
                         <a href="">
                             <i class="far fa-plus-square icon-plus-square"></i>
-                            <span class="title">Dodaj przepis do planuLINK</span>
+                            <span class="title">Dodaj przepis do planu</span>
                         </a>
                     </div>
                 </div>
