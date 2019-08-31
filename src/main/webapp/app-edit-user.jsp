@@ -24,7 +24,46 @@
 
 <section class="dashboard-section">
     <div class="row dashboard-nowrap">
-        <c:import url="fragments/sideTable.jspf" charEncoding="UTF-8"/>
+        <ul class="nav flex-column long-bg">
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">
+                    <span>Pulpit</span>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/app-recipeList">
+                    <span>Przepisy</span>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/planList">
+                    <span>Plany</span>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/editData">
+                    <span>Edytuj dane</span>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="/editPassword">
+                    <span>Zmień hasło</span>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </li>
+            <c:if test="${admin.superadmin == 1}">
+                <li class="nav-item">
+                    <a class="nav-link" href="/LINK">
+                        <span>Użytkownicy</span>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+            </c:if>
+        </ul>
 
         <div class="m-4 p-3 width-medium text-color-darker">
             <div class="m-4 border-dashed view-height">
