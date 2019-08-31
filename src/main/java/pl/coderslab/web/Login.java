@@ -25,13 +25,15 @@ public class Login extends HttpServlet {
         if (admin != null) {
             session.setAttribute("admin", admin);
 
-            if (admin.getSuperadmin() == 0) {
-                //getServletContext().getRequestDispatcher("/dashboard").forward(request, response);
-                response.sendRedirect("/dashboard");
+//            if (admin.getSuperadmin() == 0) {
+//                //getServletContext().getRequestDispatcher("/dashboard").forward(request, response);
+//                response.sendRedirect("/dashboard");
+//
+//            } else if (admin.getSuperadmin() == 1) {
+//                getServletContext().getRequestDispatcher("/super-admin-users.html").forward(request, response);
+//            }
 
-            } else if (admin.getSuperadmin() == 1) {
-                getServletContext().getRequestDispatcher("/super-admin-users.html").forward(request, response);
-            }
+            response.sendRedirect("/dashboard");
 
         } else {
             response.sendRedirect("/login");

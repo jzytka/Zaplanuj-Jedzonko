@@ -17,12 +17,16 @@ public class AppFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         HttpSession session = request.getSession();
 
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+
         String URL = request.getRequestURL().toString();
 
-        if (URL.matches("(http://localhost:8080/app.*)||(http://localhost:8080/dashboard)||(http://localhost:8080/super-admin-users.html)")) {
+        if (URL.matches("(http://localhost:8080/app.*)||(http://localhost:8080/dashboard)")) {
             Admin admin = (Admin) session.getAttribute("admin");
             if (admin == null) {
-                response.sendRedirect("/login");
+                //response.sendRedirect("/login");
+                request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
             }
         }
 

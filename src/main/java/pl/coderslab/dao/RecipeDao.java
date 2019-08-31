@@ -16,7 +16,7 @@ public class RecipeDao {
     private static final String CREATE_RECIPE = "insert into recipe values (null, ?, ?, ?, now(), null, ?, ?, ?)";
     private static final String READ_RECIPE_BY_ID = "select * from recipe where id = ?";
     private static final String UPDATE_RECIPE = "update recipe set name = ?, ingredients = ?, description = ?, preparation_time = ?," +
-            " preparation = ?, admin_id = ? updated = now() where id = ?";
+            " preparation = ?, admin_id = ?, updated = now() where id = ?";
     private static final String DELETE_RECIPE_BY_ID = "delete from recipe where id = ?";
     private static final String READ_ALL_RECIPES = "select * from recipe";
     private static final String COUNT_RECIPES_BY_USER_ID = "select count(id) from recipe where admin_id = ?";

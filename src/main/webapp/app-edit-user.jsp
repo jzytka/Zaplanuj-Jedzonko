@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,68 +19,20 @@
 </head>
 
 <body>
-<header class="page-header">
-    <nav class="navbar navbar-expand-lg justify-content-between">
-        <a href="/" class="navbar-brand main-logo main-logo-smaller">
-            Zaplanuj <span>Jedzonko</span>
-        </a>
-        <div class="d-flex justify-content-around">
-            <h4 class="text-light mr-3">Imię</h4>
-            <div class="circle-div text-center"><i class="fas fa-user icon-user"></i></div>
-        </div>
-    </nav>
-</header>
+<%@ include file="fragments/headerDashboard.jspf" %>
+
 
 <section class="dashboard-section">
     <div class="row dashboard-nowrap">
-        <ul class="nav flex-column long-bg">
-            <li class="nav-item">
-                <a class="nav-link" href="/html/dashboard.html">
-                    <span>Pulpit</span>
-                    <i class="fas fa-angle-right"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/app-recipes.html">
-                    <span>Przepisy</span>
-                    <i class="fas fa-angle-right"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/html/app-schedules.html">
-                    <span>Plany</span>
-                    <i class="fas fa-angle-right"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/html/app-edit-user-data.html">
-                    <span>Edytuj dane</span>
-                    <i class="fas fa-angle-right"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/app-edit-password.html">
-                    <span>Zmień hasło</span>
-                    <i class="fas fa-angle-right"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/html/super-admin-users.html">
-                    <span>Użytkownicy</span>
-                    <i class="fas fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
+        <c:import url="fragments/sideTable.jspf" charEncoding="UTF-8"/>
 
         <div class="m-4 p-3 width-medium text-color-darker">
             <div class="m-4 border-dashed view-height">
-                <div class="mt-4 ml-4 mr-4">
-                    <!-- fix action, method -->
-                    <!-- add name attribute for all inputs -->
-                    <form>
 
+                <form action="/editData" method="post">
+                    <div class="mt-4 ml-4 mr-4">
                         <div class="row border-bottom border-3">
-                            <div class="col"><h3 class="color-header text-uppercase">Zmień hasło</h3></div>
+                            <div class="col"><h3 class="color-header text-uppercase">Edytuj dane</h3></div>
                             <div class="col d-flex justify-content-end mb-2">
                                 <button type="submit" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Zapisz
                                 </button>
@@ -87,23 +42,28 @@
                         <table class="table borderless">
                             <tbody>
                             <tr class="d-flex">
-                                <th scope="row" class="col-2"><h4>Nowe hasło</h4></th>
+                                <th scope="row" class="col-2"><h4>Imię</h4></th>
                                 <td class="col-7">
-                                    <input class="w-100 p-1" value="">
+                                    <input class="w-100 p-1" value="${adminData.firstName}" name="firstName">
                                 </td>
                             </tr>
                             <tr class="d-flex">
-                                <th scope="row" class="col-2"><h4>Powtórz hasło</h4></th>
+                                <th scope="row" class="col-2"><h4>Nazwisko</h4></th>
                                 <td class="col-7">
-                                    <input class="w-100 p-1" value="">
+                                    <input class="w-100 p-1" value="${adminData.lastName}" name="lastName">
+                                </td>
+                            </tr>
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"><h4>Email</h4></th>
+                                <td class="col-3">
+                                    <input class="p-1 w-100" type="text" value="${adminData.email}" name="email">
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
-
         </div>
     </div>
 </section>

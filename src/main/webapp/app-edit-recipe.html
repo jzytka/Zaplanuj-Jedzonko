@@ -9,7 +9,7 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700|Open+Sans:400,600,700&amp;subset=latin-ext"
         rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="html/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 
@@ -48,7 +48,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/app-edit-user-data.html">
+                            <a class="nav-link" href="/html/app-edit-user-data.html">
                                 <span>Edytuj dane</span>
                                 <i class="fas fa-angle-right"></i>
                             </a>
@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/super-admin-users.html">
+                            <a class="nav-link" href="/html/super-admin-users.html">
                                 <span>Użytkownicy</span>
                                 <i class="fas fa-angle-right"></i>
                             </a>
@@ -71,7 +71,7 @@
                         <div class="mt-4 ml-4 mr-4">
                             <!-- fix action, method -->
                             <!-- add name attribute for all inputs -->
-                            <form>
+                            <form action="/app/recipe/edit" method="post">
                             <div class="row border-bottom border-3">
                                 <div class="col"><h3 class="color-header text-uppercase">Edycja przepisu</h3></div>
                                 <div class="col d-flex justify-content-end mb-2"><button type="submit" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Zapisz</button></div>
@@ -82,7 +82,7 @@
                                     <tr class="d-flex">
                                         <th scope="row" class="col-2">Nazwa Przepisu</th>
                                         <td class="col-7">
-                                            <input class="w-100 p-1" value="z ziemniakami i brukselką"> 
+                                            <input class="w-100 p-1" value="z ziemniakami i brukselką">
                                         </td>
                                     </tr>
                                     <tr class="d-flex">
