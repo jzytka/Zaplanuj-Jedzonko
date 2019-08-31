@@ -72,7 +72,7 @@
                         </a>
                     </div>
                     <div class="menu-item border-dashed">
-                        <a href="/app-add-schedules.html">
+                        <a href="/app-add-schedule.jsp">
                             <i class="far fa-plus-square icon-plus-square"></i>
                             <span class="title">Dodaj plan</span>
                         </a>

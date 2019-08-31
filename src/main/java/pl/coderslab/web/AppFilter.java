@@ -22,10 +22,9 @@ public class AppFilter implements Filter {
 
         String URL = request.getRequestURL().toString();
 
-        if (URL.matches("(http://localhost:8080/app.*)||(http://localhost:8080/dashboard)")) {
+        if (URL.matches("(http://localhost:8080/app.*)||(http://localhost:8080/dashboard(.jsp)?)")) {
             Admin admin = (Admin) session.getAttribute("admin");
             if (admin == null) {
-                //response.sendRedirect("/login");
                 request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
             }
         }

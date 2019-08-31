@@ -1,5 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <head>
     <meta charset="utf-8">
@@ -64,8 +68,7 @@
 
         <div class="m-4 p-3 width-medium">
             <div class="dashboard-content border-dashed p-3 m-4 view-height">
-                <!-- fix action, method -->
-                <!-- add name attribute for all inputs -->
+
                 <form action="/app/plan/add" method="post">
                     <div class="row border-bottom border-3 p-1 m-1">
                         <div class="col noPadding">
