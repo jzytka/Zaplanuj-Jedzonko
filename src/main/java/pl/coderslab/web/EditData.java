@@ -23,12 +23,12 @@ public class EditData extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
 
+        Admin admin = (Admin) session.getAttribute("admin");
+
         if (StringUtils.isNullOrEmpty(firstName) || StringUtils.isNullOrEmpty(lastName) || StringUtils.isNullOrEmpty(email)) {
-            Admin admin = (Admin) session.getAttribute("admin");
             request.setAttribute("adminData", admin);
             getServletContext().getRequestDispatcher("/app-edit-user.jsp").forward(request, response);
         } else {
-            Admin admin = (Admin) session.getAttribute("admin");
             if (!admin.getEmail().equals(email)) {
                 List<Admin> list = AdminDao.findAll();
                 for (Admin a : list) {
@@ -37,7 +37,7 @@ public class EditData extends HttpServlet {
                         getServletContext().getRequestDispatcher("/app-edit-user.jsp").forward(request, response);
                     }
                 }
-            }
+            } else {
 
                 admin.setFirstName(firstName);
                 admin.setLastName(lastName);
@@ -47,9 +47,9 @@ public class EditData extends HttpServlet {
 
                 session.setAttribute("admin", admin);
                 response.sendRedirect("/dashboard");
+            }
         }
     }
-
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
